@@ -152,7 +152,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addDanmaku(String content, boolean withBorder) {
-        BaseDanmaku danmaku = mDanmakuContext.mDanmakuFactory.createDanmaku(BaseDanmaku.TYPE_SCROLL_RL);
+        int TYPE = new Random().nextInt(7);
+        if (TYPE < 4 || TYPE == 6) {
+            TYPE = 1;
+        }
+        BaseDanmaku danmaku = mDanmakuContext.mDanmakuFactory.createDanmaku(TYPE);
         danmaku.text = content;
         danmaku.padding = 5;
         danmaku.textSize = sp2px(20);
